@@ -15,7 +15,8 @@ module riscv_alu
 	output						o_alu_zero,
 	input		[`XLEN-1:0]		i_alu_a,
 	input		[`XLEN-1:0]		i_alu_b,
-	input		[      3:0]		i_alu_ctrl
+	input		[      3:0]		i_alu_ctrl,
+	input						i_zero_condition
 );
 
 	always @(*) begin
@@ -33,8 +34,9 @@ module riscv_alu
 			default			:	o_alu_result = 32'dx;
 		endcase
 	end
-
-	assign	o_alu_zero	= (o_alu_result == 0) ? 1'b1: 1'b0;
+	wire	alu_zero;
+	assign	alu_zero	=	(o_alu_result ==0)	? 1'b1 : 1'b0;
+	assign	o_alu_zero	=	(i_zero_condition)	?	!alu_zero	: alu_zero;
 
 `ifdef	DEBUG
 	reg			[8*8-1:0]		DEBUG_ALU_OP;

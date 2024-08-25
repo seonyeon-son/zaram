@@ -3,7 +3,7 @@
 `include	"../common/riscv_mux.v"
 `include	"../common/riscv_configs.v"
 `include	"../common/riscv_register_fetch.v"
-
+`endif
 
 module	riscv_fetch
 (
@@ -14,24 +14,23 @@ module	riscv_fetch
 	input							i_pc_src_e,
 	input							i_stall_f,
 	input							i_stall_d,
-	input							i_flush_d
+	input							i_flush_d,
+	input			[`XLEN-1:0]		i_alu_result
 );
 
-	wire			[`XLEN-1:0]		o_pcf_;
 	wire			[`XLEN-1:0]		i_pcf;
 	wire			[`XLEN-1:0]		o_pc_plus_4f;
 	wire			[`XLEN-1:0]		o_imem_rd_data;
 
 	
-	assign	o_pcf = i_pcf;
 
 	riscv_mux
 	#(
-		.N_MUX_IN				(2					)
+		.N_MUX_IN				(4					)
 	)
 	u_riscv_mux(
 		.o_mux_data				(o_pcf_				),
-		.i_mux_concat_data		({i_pc_target_e, o_pc_plus_4f}),
+		.i_mux_concat_data		({i_alu_result, 32'd0, i_pc_target_e, o_pc_plus_4f}),
 		.i_mux_sel				(i_pc_src_e			)
 	);
 

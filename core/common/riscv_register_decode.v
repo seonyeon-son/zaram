@@ -22,6 +22,12 @@ module riscv_register_decode
 	output reg	[`XLEN-1:0]		o_register_q_12,
 	output reg	[`XLEN-1:0]		o_register_q_13,
 	output reg	[`XLEN-1:0]		o_register_q_14,
+	output reg	[`XLEN-1:0]		o_register_q_15,
+	output reg	[`XLEN-1:0]		o_register_q_16,
+	output reg	[`XLEN-1:0]		o_register_q_17,
+	output reg	[`XLEN-1:0]		o_register_q_18,
+	output reg	[`XLEN-1:0]		o_register_q_19,
+
 	input		[`XLEN-1:0]		i_register_d_0,
 	input		[`XLEN-1:0]		i_register_d_1,
 	input		[`XLEN-1:0]		i_register_d_2,
@@ -37,6 +43,11 @@ module riscv_register_decode
 	input		[`XLEN-1:0]		i_register_d_12,
 	input		[`XLEN-1:0]		i_register_d_13,
 	input		[`XLEN-1:0]		i_register_d_14,
+	input		[`XLEN-1:0]		i_register_d_15,
+	input		[`XLEN-1:0]		i_register_d_16,
+	input		[`XLEN-1:0]		i_register_d_17,
+	input		[`XLEN-1:0]		i_register_d_18,
+	input		[`XLEN-1:0]		i_register_d_19,
 	input						i_clk,
 	input						i_rstn,
 	input						i_clr
@@ -47,6 +58,23 @@ module riscv_register_decode
 			o_register_q_0	<= REGISTER_INIT;
 			o_register_q_1	<= REGISTER_INIT;
 			o_register_q_2	<= REGISTER_INIT;
+			o_register_q_3	<= REGISTER_INIT;
+			o_register_q_4	<= REGISTER_INIT;
+			o_register_q_5	<= REGISTER_INIT;
+			o_register_q_6	<= REGISTER_INIT;
+			o_register_q_7	<= REGISTER_INIT;
+			o_register_q_8	<= REGISTER_INIT;
+			o_register_q_9	<= REGISTER_INIT;
+			o_register_q_10	<= REGISTER_INIT;
+			o_register_q_11	<= REGISTER_INIT;
+			o_register_q_12	<= REGISTER_INIT;
+			o_register_q_13	<= REGISTER_INIT;
+			o_register_q_14	<= REGISTER_INIT;
+			o_register_q_15	<= REGISTER_INIT;
+			o_register_q_16	<= REGISTER_INIT;
+			o_register_q_17	<= REGISTER_INIT;
+			o_register_q_18	<= REGISTER_INIT;
+			o_register_q_19	<= REGISTER_INIT;
 		end else begin
 				o_register_q_0	<= i_register_d_0;
 				o_register_q_1	<= i_register_d_1;
@@ -63,6 +91,11 @@ module riscv_register_decode
 				o_register_q_12	<= i_register_d_12;
 				o_register_q_13	<= i_register_d_13;
 				o_register_q_14	<= i_register_d_14;
+				o_register_q_15	<= i_register_d_15;
+				o_register_q_16	<= i_register_d_16;
+				o_register_q_17	<= i_register_d_17;
+				o_register_q_18	<= i_register_d_18;
+				o_register_q_19	<= i_register_d_19;
 		end
 	end
 
