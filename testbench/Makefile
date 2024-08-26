@@ -1,19 +1,13 @@
-# ==================================================
-#	[ VLSISYS Lab. ]
-#	* Author		: Woong Choi (woongchoi@sm.ac.kr)
-#	* Filename		: Makefile
-#	* Description	: 
-# ==================================================
 
 # --------------------------------------------------
 #	Common Environment
 # --------------------------------------------------
-PRJ_PATH	=	/home/woong/projects/verilog_tutorials/RV32I
+PRJ_PATH	=	/home/syson/project/RV32I
 
 # --------------------------------------------------
 #	RTL Path & Top Design Name
 # --------------------------------------------------
-CPU_TYPE	=	singlecycle
+CPU_TYPE	=	pipelined
 RTL_PATH	=	$(PRJ_PATH)/core
 RTL_NAME	=	riscv_top
 RTL_FILE	=	$(RTL_PATH)/$(CPU_TYPE)/$(RTL_NAME).v

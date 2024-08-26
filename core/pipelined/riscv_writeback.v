@@ -1,6 +1,5 @@
 `ifndef		NOINC
-include		"../common/riscv_mux.v"
-include		"../common/riscv_configs.v"
+`include		"../common/riscv_configs.v"
 `endif
 
 
@@ -21,7 +20,7 @@ module	riscv_writeback
 	)
 	u_mux_writeback(
 		.o_mux_data					(o_result_w			),
-		.i_mux_concat_data			({i_ext_imm_w, i_alu_result_m, i_read_data_w, i_pc_plus_4w}),
+		.i_mux_concat_data			({i_ext_imm_w,i_pc_plus_4w,i_read_data_w,i_alu_result_w}),
 		.i_mux_sel					(i_result_src_w		)
 
 	);

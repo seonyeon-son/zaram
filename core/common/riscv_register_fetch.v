@@ -4,7 +4,7 @@
 
 module riscv_register_fetch
 #(
-	parameter	REGISTER_INIT_0	= 0
+	parameter	REGISTER_INIT	= 0
 )
 (	
 	output reg	[`XLEN-1:0]		o_register_q_0,

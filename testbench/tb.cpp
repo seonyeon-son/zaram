@@ -69,8 +69,8 @@ int main(int argc, char** argv, char** env)
         dut->eval();
         if (flag_vcd && 0==strcmp(flag_vcd, "+vcd")) vcdTrace->dump(sim_time);
 		if (sim_flag == 0) break;
-        if (dut->o_riscv_dmem_wr_en && dut->o_riscv_dmem_addr == 0xfffffff0) {
-            if (dut->o_riscv_dmem_wr_data) {
+        if (dut->o_mem_write_m && dut->o_alu_result_m == 0xfffffff0) {
+            if (dut->o_write_data_m) {
 				printf("PASS:");
             } else {
 				printf("FAIL:");

@@ -1,10 +1,3 @@
-// ==================================================
-//	[ VLSISYS Lab. ]
-//	* Author		: Woong Choi (woongchoi@sm.ac.kr)
-//	* Filename		: riscv_top_tb.v
-//	* Description	: 
-// ==================================================
-
 // --------------------------------------------------
 //	Define Global Variables
 // --------------------------------------------------
@@ -62,13 +55,13 @@ module riscv_top_tb;
 		.REGISTER_INIT			(0)
 	)
 	u_riscv_top(
-		.o_riscv_imem_pc		(o_riscv_imem_pc		),
-		.o_riscv_imem_instr		(o_riscv_imem_instr		),
-		.o_riscv_dmem_addr		(o_riscv_dmem_addr		),
-		.o_riscv_dmem_wr_en		(o_riscv_dmem_wr_en		),
-		.o_riscv_dmem_byte_sel	(o_riscv_dmem_byte_sel	),
-		.o_riscv_dmem_wr_data	(o_riscv_dmem_wr_data	),
-		.o_riscv_dmem_rd_data	(o_riscv_dmem_rd_data	),
+		.o_pc_d					(o_riscv_imem_pc		),
+		.o_instr_d				(o_riscv_imem_instr		),
+		.o_alu_result_m			(o_riscv_dmem_addr		),
+		.o_mem_write_m			(o_riscv_dmem_wr_en		),
+		.o_ctrl_mem_byte_sel_m	(o_riscv_dmem_byte_sel	),
+		.o_write_data_m			(o_riscv_dmem_wr_data	),
+		.o_mem_read_data		(o_riscv_dmem_rd_data	),
 		.i_clk					(i_clk					),
 		.i_rstn					(i_rstn					)
 	);
@@ -125,10 +118,10 @@ module riscv_top_tb;
 			$dumpfile(vcd_file);
 			$dumpvars;
 			for (i=0; i<2**(`DMEM_ADDR_BIT-2)-1; i++) begin
-				$dumpvars(0, u_riscv_top.u_riscv_dmem.dmem_arr[i]);
+				$dumpvars(0, u_riscv_top.u_riscv_memory.u_riscv_dmem.dmem_arr[i]);
 			end
 			for (i=0; i<32; i++) begin
-				$dumpvars(0, u_riscv_top.u_riscv_cpu.u_riscv_datapath.u_riscv_regfile.registers[i]);
+				$dumpvars(0, u_riscv_top.u_riscv_decode.u_riscv_regfile.registers[i]);
 			end
 		end else begin
 			$dumpfile("riscv_top_tb.vcd");

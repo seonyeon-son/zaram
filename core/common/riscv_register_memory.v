@@ -4,12 +4,12 @@
 
 module riscv_register_memory
 #(
-	parameter	REGISTER_INIT_0	= 0
+	parameter	REGISTER_INIT	= 0
 )
 (	
 	output reg	[`XLEN-1:0]		o_register_q_0,
 	output reg	[`XLEN-1:0]		o_register_q_1,
-	output reg	[`XLEN-1:0]		o_register_q_2
+	output reg	[`XLEN-1:0]		o_register_q_2,
 	output reg	[`XLEN-1:0]		o_register_q_3,
 	output reg	[`XLEN-1:0]		o_register_q_4,
 	output reg	[`XLEN-1:0]		o_register_q_5,
@@ -22,7 +22,7 @@ module riscv_register_memory
 	input		[`XLEN-1:0]		i_register_d_5,
 	input		[`XLEN-1:0]		i_register_d_6,
 	input						i_clk,
-	input						i_rstn,
+	input						i_rstn
 );
 
 	always @(posedge i_clk or negedge i_rstn) begin

@@ -9,18 +9,21 @@ module	riscv_fetch
 (
 	output			[`XLEN-1:0]		o_instr_d,
 	output			[`XLEN-1:0]		o_pc_d,
-	output reg		[`XLEN-1:0]		o_pc_plus_4d,
+	output 			[`XLEN-1:0]		o_pc_plus_4d,
 	input			[`XLEN-1:0]		i_pc_target_e,
-	input							i_pc_src_e,
+	input			[	   1:0]				i_pc_src_e,
 	input							i_stall_f,
 	input							i_stall_d,
 	input							i_flush_d,
-	input			[`XLEN-1:0]		i_alu_result
+	input			[`XLEN-1:0]		i_alu_result,
+	input							i_clk,
+	input							i_rstn
 );
 
 	wire			[`XLEN-1:0]		i_pcf;
 	wire			[`XLEN-1:0]		o_pc_plus_4f;
 	wire			[`XLEN-1:0]		o_imem_rd_data;
+	wire			[`XLEN-1:0]		o_pcf_;
 
 	
 
@@ -46,7 +49,7 @@ module	riscv_fetch
 	riscv_imem
 	u_riscv_imem(
 		.o_imem_data			(o_imem_rd_data		),
-		.i_imem_addr			(i_pcf				)
+		.i_imem_addr			(i_pcf[`IMEM_ADDR_BIT-1:2]				)
 	);
 
 	riscv_adder
@@ -61,9 +64,9 @@ module	riscv_fetch
 		.o_register_q_0			(o_instr_d			),
 		.o_register_q_1			(o_pc_d				),
 		.o_register_q_2			(o_pc_plus_4d		),
-		.i_register_q_0			(o_imem_rd_data		),
-		.i_register_q_1			(i_pcf				),
-		.i_register_q_2			(o_pc_plus_4f		),
+		.i_register_d_0			(o_imem_rd_data		),
+		.i_register_d_1			(i_pcf				),
+		.i_register_d_2			(o_pc_plus_4f		),
 		.i_register_en			(i_stall_d			),	
 		.i_clk					(i_clk				),
 		.i_rstn					(i_rstn				),
