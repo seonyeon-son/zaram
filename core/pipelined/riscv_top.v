@@ -101,15 +101,13 @@ wire                o_alu_jalr_e          ;
         .i_reg_write_w         ( o_reg_write_w         ) ,
 		.i_clk                 ( i_clk                 ) ,
 		.i_rstn                ( i_rstn                ) ,
-		.o_flush_e             ( o_flush_e             ) ,
+		.i_flush_e             ( o_flush_e             ) ,
 		.o_zero_condition_e    ( o_zero_condition_e    ) ,
 		.o_funct3_e            ( o_funct3_e            ) ,
 		.o_ctrl_mem_byte_sel_e ( o_ctrl_mem_byte_sel_e ) ,
 		.o_alu_jalr_e          ( o_alu_jalr_e          )
 		);
 
-	assign		o_pc_src_e = (o_alu_jalr_e) ? 2'd3	 :
-							 (o_jump_e | ( o_branch_e & o_zero_e)) ? 2'd1 : 2'd0;
 
 wire					o_zero_e       ;
 wire					o_reg_write_m  ;
@@ -121,6 +119,8 @@ wire	[	   1:0]		o_forward_ae   ;
 wire	[	   1:0]		o_forward_be   ;
 wire	[2:0]			o_funct3_m;
 
+assign		o_pc_src_e = (o_alu_jalr_e) ? 2'd3	 :
+						 (o_jump_e | ( o_branch_e & o_zero_e)) ? 2'd1 : 2'd0;
 
 
 
@@ -219,7 +219,7 @@ wire	[2:0]			o_funct3_m;
 	.o_forward_be   (o_forward_be      ) ,
 	.i_rs_1d        (o_instr_d[19:15]  ) ,
 	.i_rs_2d        (o_instr_d[24:20]  ) ,
-	.i_rd_e         (o_instr_d[11:7]   ) ,
+	.i_rd_e         (o_rd_e			   ) ,
 	.i_rs_1e        (o_rs_1e           ) ,
 	.i_rs_2e        (o_rs_2e           ) ,
 	.i_pc_src_e     (o_pc_src_e[0]     ) ,

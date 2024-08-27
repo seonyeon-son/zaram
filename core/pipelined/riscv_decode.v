@@ -36,7 +36,7 @@ module	riscv_decode
 	input			[	   4:0]		i_rd_w,
 	input							i_reg_write_w,
 	input							i_clk,
-	input							o_flush_e,
+	input							i_flush_e,
 	input							i_rstn
 );
 
@@ -144,7 +144,7 @@ module	riscv_decode
         .i_register_d_18		(o_ctrl_mem_byte_sel_d),
         .i_register_d_19		(i_instr_d[14:12]),
 		.i_clk					(i_clk				),
-		.i_clr					(o_flush_e			),
+		.i_clr					(i_flush_e			),
 		.i_rstn					(i_rstn				)
 	);
 

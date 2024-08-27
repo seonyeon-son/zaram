@@ -73,14 +73,12 @@ void Vriscv_top::_settle__TOP__5(Vriscv_top__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vriscv_top::_settle__TOP__5\n"); );
     Vriscv_top* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    vlTOPp->o_mem_write_m = (1U & vlTOPp->riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_2);
-    vlTOPp->__Vtableidx5 = (0xfU & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5);
+    vlTOPp->__Vtableidx5 = vlTOPp->riscv_top__DOT__o_alu_ctrl_e;
     if (vlTOPp->__Vtablechg5[vlTOPp->__Vtableidx5]) {
         vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__u_riscv_alu__DOT__DEBUG_ALU_OP 
             = vlTOPp->__Vtable5_riscv_top__DOT__u_riscv_execute__DOT__u_riscv_alu__DOT__DEBUG_ALU_OP
             [vlTOPp->__Vtableidx5];
     }
-    vlTOPp->o_ctrl_mem_byte_sel_m = (0xfU & vlTOPp->riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_8);
     vlTOPp->riscv_top__DOT__u_riscv_writeback__DOT____Vcellinp__u_mux_writeback__i_mux_concat_data[0U] 
         = vlTOPp->riscv_top__DOT__o_alu_result_w;
     vlTOPp->riscv_top__DOT__u_riscv_writeback__DOT____Vcellinp__u_mux_writeback__i_mux_concat_data[1U] 
@@ -99,49 +97,34 @@ void Vriscv_top::_settle__TOP__5(Vriscv_top__Syms* __restrict vlSymsp) {
                                                & (vlTOPp->o_alu_result_m 
                                                   << 3U)))
             : 0U);
-    vlTOPp->riscv_top__DOT__o_forward_ae = (((vlTOPp->riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_0 
+    vlTOPp->riscv_top__DOT__u_riscv_memory__DOT__o_dmem_intf_byte_sel 
+        = ((3U >= (3U & vlTOPp->o_alu_result_m)) ? 
+           (0xfU & ((IData)(vlTOPp->o_ctrl_mem_byte_sel_m) 
+                    << (3U & vlTOPp->o_alu_result_m)))
+            : 0U);
+    vlTOPp->riscv_top__DOT__o_forward_ae = ((((IData)(vlTOPp->riscv_top__DOT__o_reg_write_m) 
                                               & (0U 
-                                                 != 
-                                                 (0x1fU 
-                                                  & vlTOPp->riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_5))) 
-                                             & ((0x1fU 
-                                                 & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_10) 
-                                                == 
-                                                (0x1fU 
-                                                 & vlTOPp->riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_5)))
+                                                 != (IData)(vlTOPp->riscv_top__DOT__o_rs_1e))) 
+                                             & ((IData)(vlTOPp->riscv_top__DOT__o_rs_1e) 
+                                                == (IData)(vlTOPp->riscv_top__DOT__o_rd_m)))
                                              ? 2U : 
-                                            (((vlTOPp->riscv_top__DOT__u_riscv_memory__DOT____Vcellout__u_riscv_register_memory__o_register_q_0 
+                                            ((((IData)(vlTOPp->riscv_top__DOT__o_reg_write_w) 
                                                & (0U 
-                                                  != 
-                                                  (0x1fU 
-                                                   & vlTOPp->riscv_top__DOT__u_riscv_memory__DOT____Vcellout__u_riscv_register_memory__o_register_q_4))) 
-                                              & ((0x1fU 
-                                                  & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_10) 
-                                                 == 
-                                                 (0x1fU 
-                                                  & vlTOPp->riscv_top__DOT__u_riscv_memory__DOT____Vcellout__u_riscv_register_memory__o_register_q_4)))
+                                                  != (IData)(vlTOPp->riscv_top__DOT__o_rs_1e))) 
+                                              & ((IData)(vlTOPp->riscv_top__DOT__o_rs_1e) 
+                                                 == (IData)(vlTOPp->riscv_top__DOT__o_rd_w)))
                                               ? 1U : 0U));
-    vlTOPp->riscv_top__DOT__o_forward_be = (((vlTOPp->riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_0 
+    vlTOPp->riscv_top__DOT__o_forward_be = ((((IData)(vlTOPp->riscv_top__DOT__o_reg_write_m) 
                                               & (0U 
-                                                 != 
-                                                 (0x1fU 
-                                                  & vlTOPp->riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_5))) 
-                                             & ((0x1fU 
-                                                 & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_11) 
-                                                == 
-                                                (0x1fU 
-                                                 & vlTOPp->riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_5)))
+                                                 != (IData)(vlTOPp->riscv_top__DOT__o_rs_2e))) 
+                                             & ((IData)(vlTOPp->riscv_top__DOT__o_rs_2e) 
+                                                == (IData)(vlTOPp->riscv_top__DOT__o_rd_m)))
                                              ? 2U : 
-                                            (((vlTOPp->riscv_top__DOT__u_riscv_memory__DOT____Vcellout__u_riscv_register_memory__o_register_q_0 
+                                            ((((IData)(vlTOPp->riscv_top__DOT__o_reg_write_w) 
                                                & (0U 
-                                                  != 
-                                                  (0x1fU 
-                                                   & vlTOPp->riscv_top__DOT__u_riscv_memory__DOT____Vcellout__u_riscv_register_memory__o_register_q_4))) 
-                                              & ((0x1fU 
-                                                  & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_11) 
-                                                 == 
-                                                 (0x1fU 
-                                                  & vlTOPp->riscv_top__DOT__u_riscv_memory__DOT____Vcellout__u_riscv_register_memory__o_register_q_4)))
+                                                  != (IData)(vlTOPp->riscv_top__DOT__o_rs_2e))) 
+                                              & ((IData)(vlTOPp->riscv_top__DOT__o_rs_2e) 
+                                                 == (IData)(vlTOPp->riscv_top__DOT__o_rd_w)))
                                               ? 1U : 0U));
     vlTOPp->riscv_top__DOT__u_riscv_decode__DOT__o_alu_ctrl_d 
         = (((0x33U == (0x7fU & vlTOPp->o_instr_d)) 
@@ -175,19 +158,6 @@ void Vriscv_top::_settle__TOP__5(Vriscv_top__Syms* __restrict vlSymsp) {
                    ((0x2000U & vlTOPp->o_instr_d) ? 3U
                      : 2U) : ((0x2000U & vlTOPp->o_instr_d)
                                ? 0xfU : 8U)) : 0U));
-    vlTOPp->riscv_top__DOT__o_stall_d = ((((0x1fU & 
-                                            (vlTOPp->o_instr_d 
-                                             >> 0xfU)) 
-                                           == (0x1fU 
-                                               & (vlTOPp->o_instr_d 
-                                                  >> 7U))) 
-                                          | ((0x1fU 
-                                              & (vlTOPp->o_instr_d 
-                                                 >> 0x14U)) 
-                                             == (0x1fU 
-                                                 & (vlTOPp->o_instr_d 
-                                                    >> 7U)))) 
-                                         & (~ vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_1));
     vlTOPp->__Vtableidx2 = (0x7fU & vlTOPp->o_instr_d);
     vlTOPp->riscv_top__DOT__u_riscv_decode__DOT__o_result_src_d 
         = vlTOPp->__Vtable2_riscv_top__DOT__u_riscv_decode__DOT__o_result_src_d
@@ -227,6 +197,12 @@ void Vriscv_top::_settle__TOP__5(Vriscv_top__Syms* __restrict vlSymsp) {
             = vlTOPp->__Vtable4_riscv_top__DOT__u_riscv_decode__DOT__u_riscv_ctrl_i__DOT__DEBUG_INSTR
             [vlTOPp->__Vtableidx4][7U];
     }
+    vlTOPp->riscv_top__DOT__u_riscv_hazard__DOT__lw_stall 
+        = ((((0x1fU & (vlTOPp->o_instr_d >> 0xfU)) 
+             == (IData)(vlTOPp->riscv_top__DOT__o_rd_e)) 
+            | ((0x1fU & (vlTOPp->o_instr_d >> 0x14U)) 
+               == (IData)(vlTOPp->riscv_top__DOT__o_rd_e))) 
+           & (IData)(vlTOPp->riscv_top__DOT__o_result_src_e));
     vlTOPp->__Vtableidx1 = (0x7fU & vlTOPp->o_instr_d);
     vlTOPp->riscv_top__DOT__u_riscv_decode__DOT__o_imm_src_d 
         = vlTOPp->__Vtable1_riscv_top__DOT__u_riscv_decode__DOT__o_imm_src_d
@@ -240,11 +216,6 @@ void Vriscv_top::_settle__TOP__5(Vriscv_top__Syms* __restrict vlSymsp) {
                                            >> (0x18U 
                                                & (vlTOPp->o_alu_result_m 
                                                   << 3U)))
-            : 0U);
-    vlTOPp->riscv_top__DOT__u_riscv_memory__DOT__o_dmem_intf_byte_sel 
-        = ((3U >= (3U & vlTOPp->o_alu_result_m)) ? 
-           (0xfU & ((IData)(vlTOPp->o_ctrl_mem_byte_sel_m) 
-                    << (3U & vlTOPp->o_alu_result_m)))
             : 0U);
     vlTOPp->riscv_top__DOT__u_riscv_writeback__DOT__u_mux_writeback__DOT__mux_input_arr[0U] 
         = vlTOPp->riscv_top__DOT__u_riscv_writeback__DOT____Vcellinp__u_mux_writeback__i_mux_concat_data[0U];
@@ -298,7 +269,7 @@ void Vriscv_top::_settle__TOP__5(Vriscv_top__Syms* __restrict vlSymsp) {
                        (0xfffU & (vlTOPp->o_instr_d 
                                   >> 0x14U))) : 0U)));
     vlTOPp->riscv_top__DOT__o_result_w = vlTOPp->riscv_top__DOT__u_riscv_writeback__DOT__u_mux_writeback__DOT__mux_input_arr
-        [(3U & vlTOPp->riscv_top__DOT__u_riscv_memory__DOT____Vcellout__u_riscv_register_memory__o_register_q_1)];
+        [vlTOPp->riscv_top__DOT__o_result_src_w];
     vlTOPp->riscv_top__DOT__u_riscv_execute__DOT____Vcellinp__u_mux_execute_0__i_mux_concat_data[0U] 
         = vlTOPp->riscv_top__DOT__o_rd_1e;
     vlTOPp->riscv_top__DOT__u_riscv_execute__DOT____Vcellinp__u_mux_execute_0__i_mux_concat_data[1U] 
@@ -349,7 +320,7 @@ void Vriscv_top::_settle__TOP__5(Vriscv_top__Syms* __restrict vlSymsp) {
             << 0x20U) | (QData)((IData)(vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_write_data_e)));
     vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_ae 
         = vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__u_riscv_mux_1__DOT__mux_input_arr
-        [(1U & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_6)];
+        [vlTOPp->riscv_top__DOT__o_alu_src_e_a];
     vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__u_riscv_mux_3__DOT__mux_input_arr[0U] 
         = (IData)(vlTOPp->riscv_top__DOT__u_riscv_execute__DOT____Vcellinp__u_riscv_mux_3__i_mux_concat_data);
     vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__u_riscv_mux_3__DOT__mux_input_arr[1U] 
@@ -357,36 +328,36 @@ void Vriscv_top::_settle__TOP__5(Vriscv_top__Syms* __restrict vlSymsp) {
                    >> 0x20U));
     vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_be 
         = vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__u_riscv_mux_3__DOT__mux_input_arr
-        [(1U & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_15)];
-    vlTOPp->riscv_top__DOT__o_alu_data = ((8U & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5)
-                                           ? ((4U & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5)
+        [vlTOPp->riscv_top__DOT__o_alu_src_e_b];
+    vlTOPp->riscv_top__DOT__o_alu_data = ((8U & (IData)(vlTOPp->riscv_top__DOT__o_alu_ctrl_e))
+                                           ? ((4U & (IData)(vlTOPp->riscv_top__DOT__o_alu_ctrl_e))
                                                ? ((2U 
-                                                   & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5)
+                                                   & (IData)(vlTOPp->riscv_top__DOT__o_alu_ctrl_e))
                                                    ? 0U
                                                    : 
                                                   ((1U 
-                                                    & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5)
+                                                    & (IData)(vlTOPp->riscv_top__DOT__o_alu_ctrl_e))
                                                     ? 
                                                    VL_SHIFTRS_III(32,32,5, vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_ae, 
                                                                   (0x1fU 
                                                                    & vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_be))
                                                     : 0U))
                                                : ((2U 
-                                                   & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5)
+                                                   & (IData)(vlTOPp->riscv_top__DOT__o_alu_ctrl_e))
                                                    ? 0U
                                                    : 
                                                   ((1U 
-                                                    & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5)
+                                                    & (IData)(vlTOPp->riscv_top__DOT__o_alu_ctrl_e))
                                                     ? 0U
                                                     : 
                                                    (vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_ae 
                                                     - vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_be))))
-                                           : ((4U & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5)
+                                           : ((4U & (IData)(vlTOPp->riscv_top__DOT__o_alu_ctrl_e))
                                                ? ((2U 
-                                                   & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5)
+                                                   & (IData)(vlTOPp->riscv_top__DOT__o_alu_ctrl_e))
                                                    ? 
                                                   ((1U 
-                                                    & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5)
+                                                    & (IData)(vlTOPp->riscv_top__DOT__o_alu_ctrl_e))
                                                     ? 
                                                    (vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_ae 
                                                     & vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_be)
@@ -395,7 +366,7 @@ void Vriscv_top::_settle__TOP__5(Vriscv_top__Syms* __restrict vlSymsp) {
                                                     | vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_be))
                                                    : 
                                                   ((1U 
-                                                    & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5)
+                                                    & (IData)(vlTOPp->riscv_top__DOT__o_alu_ctrl_e))
                                                     ? 
                                                    (vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_ae 
                                                     >> 
@@ -405,10 +376,10 @@ void Vriscv_top::_settle__TOP__5(Vriscv_top__Syms* __restrict vlSymsp) {
                                                    (vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_ae 
                                                     ^ vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_be)))
                                                : ((2U 
-                                                   & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5)
+                                                   & (IData)(vlTOPp->riscv_top__DOT__o_alu_ctrl_e))
                                                    ? 
                                                   ((1U 
-                                                    & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5)
+                                                    & (IData)(vlTOPp->riscv_top__DOT__o_alu_ctrl_e))
                                                     ? 
                                                    ((vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_ae 
                                                      < vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_be)
@@ -420,7 +391,7 @@ void Vriscv_top::_settle__TOP__5(Vriscv_top__Syms* __restrict vlSymsp) {
                                                      : 0U))
                                                    : 
                                                   ((1U 
-                                                    & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5)
+                                                    & (IData)(vlTOPp->riscv_top__DOT__o_alu_ctrl_e))
                                                     ? 
                                                    (vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_ae 
                                                     << 
@@ -429,19 +400,17 @@ void Vriscv_top::_settle__TOP__5(Vriscv_top__Syms* __restrict vlSymsp) {
                                                     : 
                                                    (vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_ae 
                                                     + vlTOPp->riscv_top__DOT__u_riscv_execute__DOT__o_src_be)))));
-    vlTOPp->riscv_top__DOT__o_pc_src_e = ((1U & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_17)
+    vlTOPp->riscv_top__DOT__o_pc_src_e = ((IData)(vlTOPp->riscv_top__DOT__o_alu_jalr_e)
                                            ? 3U : (
-                                                   (1U 
-                                                    & (vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_3 
-                                                       | (vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_4 
-                                                          & ((1U 
-                                                              & vlTOPp->riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_16)
-                                                              ? 
-                                                             (0U 
-                                                              != vlTOPp->riscv_top__DOT__o_alu_data)
-                                                              : 
-                                                             (0U 
-                                                              == vlTOPp->riscv_top__DOT__o_alu_data)))))
+                                                   ((IData)(vlTOPp->riscv_top__DOT__o_jump_e) 
+                                                    | ((IData)(vlTOPp->riscv_top__DOT__o_branch_e) 
+                                                       & ((IData)(vlTOPp->riscv_top__DOT__o_zero_condition_e)
+                                                           ? 
+                                                          (0U 
+                                                           != vlTOPp->riscv_top__DOT__o_alu_data)
+                                                           : 
+                                                          (0U 
+                                                           == vlTOPp->riscv_top__DOT__o_alu_data))))
                                                     ? 1U
                                                     : 0U));
     vlTOPp->riscv_top__DOT__u_riscv_fetch__DOT____Vcellinp__u_riscv_mux__i_mux_concat_data[0U] 
@@ -454,7 +423,8 @@ void Vriscv_top::_settle__TOP__5(Vriscv_top__Syms* __restrict vlSymsp) {
     vlTOPp->riscv_top__DOT__u_riscv_fetch__DOT____Vcellinp__u_riscv_mux__i_mux_concat_data[3U] 
         = (IData)((((QData)((IData)(vlTOPp->riscv_top__DOT__o_alu_data)) 
                     << 0x20U) >> 0x20U));
-    vlTOPp->riscv_top__DOT__o_flush_e = (1U & (IData)(vlTOPp->riscv_top__DOT__o_pc_src_e));
+    vlTOPp->riscv_top__DOT__o_flush_e = (1U & ((IData)(vlTOPp->riscv_top__DOT__u_riscv_hazard__DOT__lw_stall) 
+                                               | (IData)(vlTOPp->riscv_top__DOT__o_pc_src_e)));
     vlTOPp->riscv_top__DOT__u_riscv_fetch__DOT__u_riscv_mux__DOT__mux_input_arr[0U] 
         = vlTOPp->riscv_top__DOT__u_riscv_fetch__DOT____Vcellinp__u_riscv_mux__i_mux_concat_data[0U];
     vlTOPp->riscv_top__DOT__u_riscv_fetch__DOT__u_riscv_mux__DOT__mux_input_arr[1U] 
@@ -510,19 +480,40 @@ void Vriscv_top::_ctor_var_reset() {
     i_rstn = VL_RAND_RESET_I(1);
     riscv_top__DOT__o_pc_plus_4d = VL_RAND_RESET_I(32);
     riscv_top__DOT__o_pc_src_e = VL_RAND_RESET_I(2);
-    riscv_top__DOT__o_stall_d = VL_RAND_RESET_I(1);
     riscv_top__DOT__o_alu_data = VL_RAND_RESET_I(32);
+    riscv_top__DOT__o_reg_write_e = VL_RAND_RESET_I(1);
+    riscv_top__DOT__o_result_src_e = VL_RAND_RESET_I(2);
+    riscv_top__DOT__o_mem_write_e = VL_RAND_RESET_I(1);
+    riscv_top__DOT__o_jump_e = VL_RAND_RESET_I(1);
+    riscv_top__DOT__o_branch_e = VL_RAND_RESET_I(1);
+    riscv_top__DOT__o_alu_ctrl_e = VL_RAND_RESET_I(4);
+    riscv_top__DOT__o_alu_src_e_a = VL_RAND_RESET_I(1);
+    riscv_top__DOT__o_alu_src_e_b = VL_RAND_RESET_I(1);
     riscv_top__DOT__o_rd_1e = VL_RAND_RESET_I(32);
     riscv_top__DOT__o_rd_2e = VL_RAND_RESET_I(32);
     riscv_top__DOT__o_pc_e = VL_RAND_RESET_I(32);
+    riscv_top__DOT__o_rs_1e = VL_RAND_RESET_I(5);
+    riscv_top__DOT__o_rs_2e = VL_RAND_RESET_I(5);
+    riscv_top__DOT__o_rd_e = VL_RAND_RESET_I(5);
     riscv_top__DOT__o_ext_imm_e = VL_RAND_RESET_I(32);
     riscv_top__DOT__o_pc_plus_4e = VL_RAND_RESET_I(32);
     riscv_top__DOT__o_result_w = VL_RAND_RESET_I(32);
+    riscv_top__DOT__o_rd_w = VL_RAND_RESET_I(5);
+    riscv_top__DOT__o_reg_write_w = VL_RAND_RESET_I(1);
     riscv_top__DOT__o_flush_e = VL_RAND_RESET_I(1);
+    riscv_top__DOT__o_zero_condition_e = VL_RAND_RESET_I(1);
+    riscv_top__DOT__o_funct3_e = VL_RAND_RESET_I(3);
+    riscv_top__DOT__o_ctrl_mem_byte_sel_e = VL_RAND_RESET_I(4);
+    riscv_top__DOT__o_alu_jalr_e = VL_RAND_RESET_I(1);
+    riscv_top__DOT__o_reg_write_m = VL_RAND_RESET_I(1);
+    riscv_top__DOT__o_result_src_m = VL_RAND_RESET_I(2);
+    riscv_top__DOT__o_rd_m = VL_RAND_RESET_I(5);
     riscv_top__DOT__o_pc_plus_4m = VL_RAND_RESET_I(32);
     riscv_top__DOT__o_ext_imm_m = VL_RAND_RESET_I(32);
     riscv_top__DOT__o_forward_ae = VL_RAND_RESET_I(2);
     riscv_top__DOT__o_forward_be = VL_RAND_RESET_I(2);
+    riscv_top__DOT__o_funct3_m = VL_RAND_RESET_I(3);
+    riscv_top__DOT__o_result_src_w = VL_RAND_RESET_I(2);
     riscv_top__DOT__o_pc_plus_4w = VL_RAND_RESET_I(32);
     riscv_top__DOT__o_ext_imm_w = VL_RAND_RESET_I(32);
     riscv_top__DOT__o_read_data_w = VL_RAND_RESET_I(32);
@@ -541,21 +532,6 @@ void Vriscv_top::_ctor_var_reset() {
     riscv_top__DOT__u_riscv_decode__DOT__o_alu_src_d_b = VL_RAND_RESET_I(1);
     riscv_top__DOT__u_riscv_decode__DOT__o_alu_ctrl_d = VL_RAND_RESET_I(4);
     riscv_top__DOT__u_riscv_decode__DOT__o_ext_imm_d = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_19 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_18 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_17 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_16 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_15 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_12 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_11 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_10 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_6 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_5 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_4 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_3 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_2 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_1 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_decode__DOT____Vcellout__u_riscv_register_decode__o_register_q_0 = VL_RAND_RESET_I(32);
     VL_RAND_RESET_W(256, riscv_top__DOT__u_riscv_decode__DOT__u_riscv_ctrl_i__DOT__DEBUG_INSTR);
     { int __Vi0=0; for (; __Vi0<32; ++__Vi0) {
             riscv_top__DOT__u_riscv_decode__DOT__u_riscv_regfile__DOT__registers[__Vi0] = VL_RAND_RESET_I(32);
@@ -567,12 +543,6 @@ void Vriscv_top::_ctor_var_reset() {
     riscv_top__DOT__u_riscv_execute__DOT____Vcellinp__u_riscv_mux_1__i_mux_concat_data = VL_RAND_RESET_Q(64);
     VL_RAND_RESET_W(96, riscv_top__DOT__u_riscv_execute__DOT____Vcellinp__u_mux_execute_2__i_mux_concat_data);
     riscv_top__DOT__u_riscv_execute__DOT____Vcellinp__u_riscv_mux_3__i_mux_concat_data = VL_RAND_RESET_Q(64);
-    riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_9 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_8 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_5 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_2 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_1 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_execute__DOT____Vcellout__u_riscv_register_execute__o_register_q_0 = VL_RAND_RESET_I(32);
     { int __Vi0=0; for (; __Vi0<3; ++__Vi0) {
             riscv_top__DOT__u_riscv_execute__DOT__u_mux_execute_0__DOT__mux_input_arr[__Vi0] = VL_RAND_RESET_I(32);
     }}
@@ -588,19 +558,17 @@ void Vriscv_top::_ctor_var_reset() {
     riscv_top__DOT__u_riscv_execute__DOT__u_riscv_alu__DOT__DEBUG_ALU_OP = VL_RAND_RESET_Q(64);
     riscv_top__DOT__u_riscv_memory__DOT__o_dmem_intf_wr_data = VL_RAND_RESET_I(32);
     riscv_top__DOT__u_riscv_memory__DOT__o_dmem_intf_byte_sel = VL_RAND_RESET_I(4);
-    riscv_top__DOT__u_riscv_memory__DOT____Vcellout__u_riscv_register_memory__o_register_q_4 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_memory__DOT____Vcellout__u_riscv_register_memory__o_register_q_1 = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_memory__DOT____Vcellout__u_riscv_register_memory__o_register_q_0 = VL_RAND_RESET_I(32);
+    riscv_top__DOT__u_riscv_memory__DOT__u_riscv_dmem_interface__DOT__byte_aligned_dmem_rd_data = VL_RAND_RESET_I(32);
     { int __Vi0=0; for (; __Vi0<16384; ++__Vi0) {
             riscv_top__DOT__u_riscv_memory__DOT__u_riscv_dmem__DOT__dmem_arr[__Vi0] = VL_RAND_RESET_I(32);
     }}
     VL_RAND_RESET_W(1024, riscv_top__DOT__u_riscv_memory__DOT__u_riscv_dmem__DOT__FILE_DATA_MIF);
     riscv_top__DOT__u_riscv_memory__DOT__u_riscv_dmem__DOT__i = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_memory__DOT__u_riscv_dmem_interface__DOT__byte_aligned_dmem_rd_data = VL_RAND_RESET_I(32);
     VL_RAND_RESET_W(128, riscv_top__DOT__u_riscv_writeback__DOT____Vcellinp__u_mux_writeback__i_mux_concat_data);
     { int __Vi0=0; for (; __Vi0<4; ++__Vi0) {
             riscv_top__DOT__u_riscv_writeback__DOT__u_mux_writeback__DOT__mux_input_arr[__Vi0] = VL_RAND_RESET_I(32);
     }}
+    riscv_top__DOT__u_riscv_hazard__DOT__lw_stall = VL_RAND_RESET_I(1);
     __Vtableidx1 = 0;
     __Vtable1_riscv_top__DOT__u_riscv_decode__DOT__o_imm_src_d[0] = 7U;
     __Vtable1_riscv_top__DOT__u_riscv_decode__DOT__o_imm_src_d[1] = 7U;
@@ -5119,7 +5087,6 @@ void Vriscv_top::_ctor_var_reset() {
     __Vtable5_riscv_top__DOT__u_riscv_execute__DOT__u_riscv_alu__DOT__DEBUG_ALU_OP[14] = 0ULL;
     __Vtable5_riscv_top__DOT__u_riscv_execute__DOT__u_riscv_alu__DOT__DEBUG_ALU_OP[15] = 0ULL;
     __Vdly__o_instr_d = VL_RAND_RESET_I(32);
-    __Vdly__riscv_top__DOT__o_pc_plus_4d = VL_RAND_RESET_I(32);
     { int __Vi0=0; for (; __Vi0<4; ++__Vi0) {
             __Vm_traceActivity[__Vi0] = VL_RAND_RESET_I(1);
     }}

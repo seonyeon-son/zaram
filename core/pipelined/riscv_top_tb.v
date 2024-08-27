@@ -40,13 +40,13 @@ module riscv_top_tb;
 // --------------------------------------------------
 //	DUT Signals & Instantiate
 // --------------------------------------------------
-	wire		[`XLEN-1:0]		o_riscv_imem_pc;
-	wire		[`XLEN-1:0]		o_riscv_imem_instr;
-	wire		[`XLEN-1:0]		o_riscv_dmem_addr;
-	wire		 				o_riscv_dmem_wr_en;
-	wire		[      3:0]		o_riscv_dmem_byte_sel;
-	wire		[`XLEN-1:0]		o_riscv_dmem_wr_data;
-	wire		[`XLEN-1:0]		o_riscv_dmem_rd_data;
+	wire		[`XLEN-1:0]		o_pc_d				;
+	wire		[`XLEN-1:0]		o_instr_d			;
+	wire		[`XLEN-1:0]		o_alu_result_m		;
+	wire		 				o_mem_write_m		;
+	wire		[      3:0]		o_ctrl_mem_byte_sel_m;
+	wire		[`XLEN-1:0]		o_write_data_m		;
+	wire		[`XLEN-1:0]		o_mem_read_data	;
 	reg							i_clk;
 	reg							i_rstn;
 
@@ -55,13 +55,13 @@ module riscv_top_tb;
 		.REGISTER_INIT			(0)
 	)
 	u_riscv_top(
-		.o_pc_d					(o_riscv_imem_pc		),
-		.o_instr_d				(o_riscv_imem_instr		),
-		.o_alu_result_m			(o_riscv_dmem_addr		),
-		.o_mem_write_m			(o_riscv_dmem_wr_en		),
-		.o_ctrl_mem_byte_sel_m	(o_riscv_dmem_byte_sel	),
-		.o_write_data_m			(o_riscv_dmem_wr_data	),
-		.o_mem_read_data		(o_riscv_dmem_rd_data	),
+		.o_pc_d					(o_pc_d				),
+		.o_instr_d				(o_instr_d			),
+		.o_alu_result_m			(o_alu_result_m		),
+		.o_mem_write_m			(o_mem_write_m		),
+		.o_ctrl_mem_byte_sel_m	(o_ctrl_mem_byte_sel_m),
+		.o_write_data_m			(o_write_data_m		),
+		.o_mem_read_data		(o_mem_read_data	),
 		.i_clk					(i_clk					),
 		.i_rstn					(i_rstn					)
 	);

@@ -20,7 +20,7 @@ module riscv_register_fetch
 );
 
 	always @(posedge i_clk or negedge i_rstn) begin
-		if(!i_rstn) begin
+		if(!i_rstn || i_clr) begin
 			o_register_q_0	<= REGISTER_INIT;
 			o_register_q_1	<= REGISTER_INIT;
 			o_register_q_2	<= REGISTER_INIT;

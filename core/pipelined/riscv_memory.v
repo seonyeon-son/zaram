@@ -38,16 +38,6 @@ module	riscv_memory
 	wire				[`XLEN-1:0] o_dmem_rd_data       ;
 
 
-	riscv_dmem
-	u_riscv_dmem(
-		.o_dmem_data				(o_dmem_rd_data                       ) ,
-		.i_dmem_data				(o_dmem_intf_wr_data                  ) ,
-		.i_dmem_addr				(o_dmem_intf_addr[`DMEM_ADDR_BIT-1:2] ) ,
-		.i_dmem_byte_sel			(o_dmem_intf_byte_sel                 ) ,
-		.i_dmem_wr_en				(o_dmem_intf_wen                      ) ,
-		.i_clk						(i_clk                                )
-	);
-
 	riscv_dmem_interface
 	u_riscv_dmem_interface(
 		.o_dmem_intf_addr			(o_dmem_intf_addr      ) ,
@@ -64,6 +54,16 @@ module	riscv_memory
 		.i_clk						(i_clk                 )
 	);
 
+	riscv_dmem
+	u_riscv_dmem(
+		.o_dmem_data				(o_dmem_rd_data                       ) ,
+		.i_dmem_data				(o_dmem_intf_wr_data                  ) ,
+		.i_dmem_addr				(o_dmem_intf_addr[`DMEM_ADDR_BIT-1:2] ) ,
+		.i_dmem_byte_sel			(o_dmem_intf_byte_sel                 ) ,
+		.i_dmem_wr_en				(o_dmem_intf_wen                      ) ,
+		.i_clk						(i_clk                                )
+	);
+
 	riscv_register_memory
 	u_riscv_register_memory(
 		.o_register_q_0				(o_reg_write_w			),		
@@ -77,8 +77,8 @@ module	riscv_memory
         .i_register_d_1				(i_result_src_m			),
         .i_register_d_2				(i_alu_result_m			),
         .i_register_d_3				(o_dmem_intf_rd_data	),
-        .i_register_d_4				(i_pc_plus_4m			),
-        .i_register_d_5				(i_rd_m					),
+        .i_register_d_4				(i_rd_m					),
+        .i_register_d_5				(i_pc_plus_4m			),
         .i_register_d_6				(i_ext_imm_m			),				
         .i_clk						(i_clk					),
         .i_rstn						(i_rstn					)
